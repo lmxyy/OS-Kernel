@@ -20,6 +20,17 @@
      -l:libgnuefi.a                 \
      -l:libefi.a                    \
      -o main.so
+ objcopy -j .text                \
+          -j .sdata               \
+          -j .data                \
+          -j .dynamic             \
+          -j .dynsym              \
+          -j .rel                 \
+          -j .rela                \
+          -j .reloc               \
+          --target=efi-app-x86_64 \
+          main.so                 \
+          main.efi
 
 dd if=/dev/zero of=./uefi.img bs=512 count=93750
 
@@ -36,13 +47,12 @@ gdisk ./uefi.img
 # y
 
 # SUDO
-su
-losetup --offset 1048576 --sizelimit 46934528 /dev/loop0 /path/to/uefi.img
-mkdosfs -F 32 /dev/loop0
-mount /dev/loop0 /mnt
-cp /path/to/main.efi /mnt/
-umount /mnt
-losetup -d /dev/loop0
+sudo losetup --offset 1048576 --sizelimit 46934528 /dev/loop0 ./uefi.img
+sudo mkdosfs -F 32 /dev/loop0
+sudo mount /dev/loop0 /mnt
+sudo cp ./main.efi /mnt/
+sudo umount /mnt
+sudo losetup -d /dev/loop0
 
 # END SUDU
 
