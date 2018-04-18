@@ -47,4 +47,4 @@ losetup -d /dev/loop0
 # END SUDU
 
 # RUN
-qemu-system-x86_64 -cpu qemu64 -bios OVMF.fd -drive file=uefi.img,if=ide
+qemu-system-x86_64 -cpu qemu64 -bios OVMF.fd -drive file=uefi.img,if=ide -vnc :1
