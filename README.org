@@ -1,0 +1,6 @@
+#+AUTHOR: OS Kernel Group
+#+TITLE: README of the OS Kernel
+* Reference
++ [[file:Document/manual.txt][manual]]
++ [[https://wenku.baidu.com/view/fe0c6c607e21af45b307a856.html][简述操作系统的引导过程]]
++ [[https://wiki.osdev.org/UEFI_Bare_Bones][UEFI Bare Bones]]
