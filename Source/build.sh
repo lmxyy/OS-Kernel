@@ -13,13 +13,14 @@
      /usr/lib/crt0-efi-x86_64.o     \
      -nostdlib                      \
      -znocombreloc                  \
-     -T /usr/lib/elf_x86_64_efi.lds \
+     -T /usr/lib64/elf_x86_64_efi.lds \
      -shared                        \
      -Bsymbolic                     \
      -L /usr/lib                    \
      -l:libgnuefi.a                 \
      -l:libefi.a                    \
      -o main.so
+ 
  objcopy -j .text                \
           -j .sdata               \
           -j .data                \
