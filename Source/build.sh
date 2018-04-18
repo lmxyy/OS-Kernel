@@ -10,13 +10,13 @@
       -o main.o
 
  ld main.o                          \
-     /usr/lib/crt0-efi-x86_64.o     \
+     /usr/lib64/crt0-efi-x86_64.o     \
      -nostdlib                      \
      -znocombreloc                  \
      -T /usr/lib64/elf_x86_64_efi.lds \
      -shared                        \
      -Bsymbolic                     \
-     -L /usr/lib                    \
+     -L /usr/lib64                   \
      -l:libgnuefi.a                 \
      -l:libefi.a                    \
      -o main.so
