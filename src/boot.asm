@@ -25,6 +25,8 @@
 	int 0x10
 	mov al, 'O'
 	int 0x10
+	mov al, 'S'
+	int 0x10
 	mov al, '!'
 	int 0x10
 
