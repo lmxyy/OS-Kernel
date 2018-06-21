@@ -21,7 +21,9 @@
 	int 0x10
 	mov al, ' '
 	int 0x10
-	mov al, 'L'
+	mov al, 'Y'
+	int 0x10
+	mov al, 'Y'
 	int 0x10
 	mov al, 'O'
 	int 0x10
