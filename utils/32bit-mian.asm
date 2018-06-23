@@ -1,4 +1,4 @@
-[org0x7c00]
+[org 0x7c00]
 	mov bp, 0x9000
 	mov sp, bp
 
@@ -8,13 +8,13 @@
 	call switch_to_pm
 	jmp $
 
-	%include "boot_sect_print"
-	$include "32bit-gdt.asm"
-	$include "32bit-print.asm"
-	$include "32bit-switch.asm"
+	%include "/Users/limuyang/Desktop/OS-Kernel/utils/print.asm"
+	%include "/Users/limuyang/Desktop/OS-Kernel/utils/32bit-gdt.asm"
+	%include "/Users/limuyang/Desktop/OS-Kernel/utils/32bit-print.asm"
+	%include "/Users/limuyang/Desktop/OS-Kernel/utils/32bit-switch.asm"
 
-[bit3 32]
-BIGIN_PM:
+[bits 32]
+BEGIN_PM:
 	mov ebx, MSG_PROT_MODE
 	call print_string_pm
 	jmp $

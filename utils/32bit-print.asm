@@ -1,4 +1,4 @@
-	[bit 32]
+[bits 32]
 
 	VIDEO_MEMORY equ 0xb8000
 	WHITE_ON_BLACK equ 0x0f

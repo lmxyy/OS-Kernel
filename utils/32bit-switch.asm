@@ -1,7 +1,7 @@
 [bits 16]
 switch_to_pm:
 	cli			;disable interrupts
-	lgdt [gdt-descriptor]
+	lgdt [gdt_descriptor]
 	mov eax, cr0
 	or eax, 0x1
 	mov cr0, eax
@@ -9,7 +9,7 @@ switch_to_pm:
 
 [bits 32]
 init_pm:
-	mov ax, DATA_SEG
+	mov ax, DATA_SEG	;update the segment registers
 	mov ds, ax
 	mov ss, ax
 	mov es, ax
