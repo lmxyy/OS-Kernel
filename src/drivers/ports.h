@@ -1,5 +1,4 @@
-#ifdef PORTS_H
-#else
+#ifndef PORTS_H
 #define PORTS_H
 
 unsigned char portByteIn(unsigned short port);

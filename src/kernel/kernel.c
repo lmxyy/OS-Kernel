@@ -1,5 +1,4 @@
-#ifdef KERNEL_C
-#else
+#ifndef KERNEL_C
 #define KERNEL_C
 
 #include "../drivers/ports.h"

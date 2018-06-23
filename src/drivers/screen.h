@@ -1,5 +1,4 @@
-#ifdef SCREEN_H
-#else
+#ifndef SCREEN_H
 #define SCREEN_H
 
 #include "ports.h"
