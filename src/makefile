@@ -5,16 +5,17 @@ OBJ = ${C_SOURCES:.c=.o}
 
 CC = /Users/limuyang/Desktop/OS-Kernel/crosscompiler/gcc/bin/i386-elf-gcc
 GDB = /Users/limuyang/Desktop/OS-Kernel/crosscompiler/gdb/bin/i386-elf-gdb
+LD = /Users/limuyang/Desktop/OS-Kernel/crosscompiler/gcc/bin/i386-elf-ld
 CFLAGS = -g
 
 os-image.bin: boot/bootsect.bin kernel.bin
 	cat $^ > os-image.bin
 
 kernel.bin: boot/kernel_entry.o ${OBJ}
-	i386-elf-ld -o $@ -Ttext 0x1000 $^ --oformat binary
+	${LD} -o $@ -Ttext 0x1000 $^ --oformat binary
 
 kernel.elf: boot/kernel_entry.o ${OBJ}
-	i386-elf-ld -o $@ -Ttext 0x1000 $^
+	${LD} -o $@ -Ttext 0x1000 $^
 
 run: os-image.bin
 	qemu-system-i386 -fda os-image.bin
