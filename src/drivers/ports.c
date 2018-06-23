@@ -1,3 +1,7 @@
+#ifdef PORTS_C
+#else
+#define PORTS_C
+
 unsigned char portByteIn(unsigned short port)
 {
     unsigned char ret;
@@ -21,3 +25,5 @@ void portWordOut(unsigned short port,unsigned char data)
 {
     __asm__("out %%ax, %%dx" : : "d"(port),"a"(data));
 }
+
+#endif
