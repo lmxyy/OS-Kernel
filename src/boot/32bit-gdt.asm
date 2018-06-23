@@ -1,5 +1,5 @@
 gdt_start:
-	dq 0x0000
+	dq 0
 
 	;; refer to page 34 of os-dev.pdf 
 gdt_code:
