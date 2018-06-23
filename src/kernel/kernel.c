@@ -1,3 +1,7 @@
+#ifdef KERNEL_C
+#else
+#define KERNEL_C
+
 #include "../drivers/ports.h"
 
 void main()
@@ -17,3 +21,5 @@ void main()
     vga[offsetFromVGA] = 'X';	/* The data. */
     vga[offsetFromVGA+1] = 0x0f; /* The color: white text on black background. */
 }
+
+#endif
