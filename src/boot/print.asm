@@ -1,3 +1,6 @@
+	%ifndef PRINT_ASM
+	%define PRINT_ASM
+	
 print:
 	pusha
 
@@ -27,3 +30,5 @@ print_nl:
 
 	popa
 	ret
+
+	%endif

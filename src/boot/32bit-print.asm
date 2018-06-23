@@ -1,3 +1,6 @@
+	%ifndef PRINT32_ASM
+	%define PRINT32_ASM
+	
 [bits 32]
 
 	VIDEO_MEMORY equ 0xb8000
@@ -23,3 +26,5 @@ print_string_pm_loop:
 print_string_pm_done:
 	popa
 	ret
+
+	%endif

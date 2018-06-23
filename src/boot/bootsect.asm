@@ -1,3 +1,6 @@
+	%ifndef BOOTSECT_ASM
+	%define BOOTSECT_ASM
+
 [org 0x7c00]
 	KERNEL_OFFSET equ 0x1000
 
@@ -57,3 +60,5 @@ BEGIN_PM:
 	;; 0xaa55 is the magic number.
 	times 510-($-$$) db 0
 	dw 0xaa55
+
+	%endif

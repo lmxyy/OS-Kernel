@@ -1,3 +1,6 @@
+	%ifndef DISK_ASM
+	%define DISK_ASM
+
 	;; for more details, see http://stanislavs.org/helppc/int_13-2.html
 disk_load:
 	pusha
@@ -46,3 +49,5 @@ SECTORS_ERROR:
 	db "Incorrect number of sectors read.",0
 LOAD_SUCCESS:
 	db "Load disk successfully!",0
+
+	%endif

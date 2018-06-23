@@ -1,3 +1,6 @@
+	%ifndef PRINT_HEX_ASM
+	%define PRINT_HEX_ASM
+
 print_hex:
 	pusha
 
@@ -31,3 +34,5 @@ end:
 	
 HEX_OUT:	
 	db '0x0000', 0
+
+	%endif

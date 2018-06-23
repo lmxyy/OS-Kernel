@@ -1,3 +1,5 @@
+	%ifndef SWITCH32_ASM
+	%define SWITCH32_ASM
 [bits 16]
 switch_to_pm:
 	cli			;disable interrupts
@@ -20,3 +22,5 @@ init_pm:
 	mov esp, ebp
 
 	call BEGIN_PM
+
+	%endif

@@ -1,3 +1,6 @@
+	%ifndef GDT32_ASM
+	%define GDT32_ASM
+	
 gdt_start:
 	dq 0
 
@@ -26,3 +29,5 @@ gdt_descriptor:
 
 	CODE_SEG equ gdt_code-gdt_start
 	DATA_SEG equ gdt_data-gdt_start
+
+	%endif
