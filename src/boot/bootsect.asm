@@ -21,7 +21,7 @@
 	call load_kernel
 	;; to protect mode
 	call switch_to_pm
-
+	
 	%include "boot/print.asm"
 	%include "boot/print_hex.asm"
 	%include "boot/disk.asm"
@@ -36,9 +36,8 @@ load_kernel:
 	call print_nl
 
 	mov bx, KERNEL_OFFSET
-	mov dh, 2
+	mov dh, 16
 	mov dl, [BOOT_DRIVE]
-
 	call disk_load
 	ret
 
