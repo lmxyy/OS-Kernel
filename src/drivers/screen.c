@@ -75,6 +75,21 @@ int printChar(char c,int row,int col,char attr)
 	vidmen[offset|1] = attr;
 	offset += 2;
     }
+
+    /* To scroll the screen. */
+    if (offset >= ((MAX_ROWS*MAX_COLS)<<1))
+    {
+	int i;
+
+	for (i = 0;i < MAX_ROWS-1;++i)
+	    memoryCopy(VIDEO_ADDRESS+getOffset(i+1,0),VIDEO_ADDRESS+getOffset(i,0),MAX_COLS<<1);
+
+	char *lastLine = VIDEO_ADDRESS+getOffset(MAX_ROWS-1,0);
+	for (i = 0;i < (MAX_COLS<<1);++i) lastLine[i] = 0;
+
+	offset -= (MAX_COLS<<1);
+    }
+    
     setCursorOffset(offset);
     return offset;
 }
