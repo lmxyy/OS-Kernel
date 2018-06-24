@@ -1,5 +1,5 @@
-	%ifndef GDT32_ASM
-	%define GDT32_ASM
+	%ifndef GDT_ASM
+	%define GDT_ASM
 	
 gdt_start:
 	dq 0

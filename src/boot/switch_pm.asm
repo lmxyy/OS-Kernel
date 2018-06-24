@@ -1,5 +1,5 @@
-	%ifndef SWITCH32_ASM
-	%define SWITCH32_ASM
+	%ifndef SWITCH_PM_ASM
+	%define SWITCH_PM_ASM
 [bits 16]
 switch_to_pm:
 	cli			;disable interrupts
