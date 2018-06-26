@@ -41,6 +41,7 @@ void isrInstall()
     setIDTEntry(29, (u32)isr29);
     setIDTEntry(30, (u32)isr30);
     setIDTEntry(31, (u32)isr31);
+    setIDT();
 }
 
 char *exceptionMessage[] =
