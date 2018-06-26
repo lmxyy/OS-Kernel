@@ -88,8 +88,8 @@ void isrHandler(RegType r)
     kprint("receive interrupt: ");
     char s[10];
     int2Ascii(r.intNo,s);
-    kprint(s); kprint('\n');
-    kprint(exceptionMessage[r.intNo]); kprint('\n');
+    kprint(s); kprint("\n");
+    kprint(exceptionMessage[r.intNo]); kprint("\n");
 }
 
 #endif

@@ -132,4 +132,5 @@ void kprint(char *message)
 {
     kprintAt(message,-1,-1);
 }
+
 #endif
