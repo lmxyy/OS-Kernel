@@ -5,6 +5,12 @@ void memoryCopy(char *source,char *dest,int nbytes)
 	*(dest+i) = *(source+i);
 }
 
+void memorySet(u8 dest,u8 val,int len)
+{
+    u8 *now = dest;
+    while (len--) *(now++) = val;
+}
+
 void int2Ascii(int n,char str[])
 {
     int i = 0,j = 0,sign = 0;
