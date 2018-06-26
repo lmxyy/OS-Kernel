@@ -1,6 +1,7 @@
 #ifndef IDT_C
 #define IDT_C
 
+#include "../kernel/util.h"
 #include "idt.h"
 
 void setIDTEntry(int n,u32 handler)
@@ -14,7 +15,7 @@ void setIDTEntry(int n,u32 handler)
 void setIDT()
 {
     idtReg.base = (u32)&idt;
-    idtReg.limit = idtEntryNumber*sizeof(IDTEntry)-1;
+    idtReg.limit = IDT_ENTRIES * sizeof(IDTEntry) - 1;
     __asm__ __volatile__("lidt (%0)": : "r" (&idtReg));
 }
 

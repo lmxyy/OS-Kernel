@@ -1,9 +1,11 @@
 #ifndef PORTS_H
 #define PORTS_H
 
-unsigned char portByteIn(unsigned short port);
-void portByteOut(unsigned short port,unsigned char data);
-unsigned char portWordInt(unsigned short port);
-void portWordOut(unsigned short port,unsigned short data);
+#include "../cpu/types.h"
+
+u8 portByteIn(u16 port);
+void portByteOut(u16 port,u8 data);
+u16 portWordIn(u16 port);
+void portWordOut(u16 port,u16 data);
 
 #endif

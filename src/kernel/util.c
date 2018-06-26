@@ -1,3 +1,8 @@
+#ifndef UTIL_C
+#define UTIL_C
+
+#include "util.h"
+
 void memoryCopy(char *source,char *dest,int nbytes)
 {
     int i = 0;
@@ -25,3 +30,5 @@ void int2Ascii(int n,char str[])
 	str[i-j-1] = c;
     }
 }
+
+#endif

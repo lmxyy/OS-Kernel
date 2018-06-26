@@ -1,28 +1,30 @@
 #ifndef PORTS_C
 #define PORTS_C
 
-unsigned char portByteIn(unsigned short port)
+#include "ports.h"
+
+u8 portByteIn(u16 port)
 {
-    unsigned char ret;
+    u8 ret;
     __asm__("in %%dx, %%al" : "=a"(ret) : "d"(port));
     return ret;
 }
 
-void portByteOut(unsigned short port,unsigned char data)
+void portByteOut(u16 port,u8 data)
 {
-    __asm__("out %%al, %%dx" : : "d"(port),"a"(data));
+    __asm__ __volatile__("out %%al, %%dx" : : "d"(port),"a"(data));
 }
 
-unsigned char portWordIn(unsigned short port)
+u16 portWordIn(u16 port)
 {
-    unsigned char ret;
+    u16 ret;
     __asm__("in %%dx, %%ax" : "=a"(ret) : "d"(port));
     return ret;
 }
 
-void portWordOut(unsigned short port,unsigned char data)
+void portWordOut(u16 port,u16 data)
 {
-    __asm__("out %%ax, %%dx" : : "d"(port),"a"(data));
+    __asm__ __volatile__("out %%ax, %%dx" : : "d"(port),"a"(data));
 }
 
 #endif

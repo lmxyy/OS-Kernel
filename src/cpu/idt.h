@@ -4,10 +4,10 @@
 #include "types.h"
 
 /* The code segment offset. */
-const u32 KERNEL_CS = 0x08;
-const int idtEntryNumber = 256;
+#define KERNEL_CS (0x08)
+#define IDT_ENTRIES (256)
 
-struct IDTEntry
+typedef struct
 {
     u16 lowBase;		/* Low 16 bits of the handler's address. */
     u16 sel;			/* Kernel segment selector. */
@@ -20,16 +20,16 @@ struct IDTEntry
      */
     u8 flags;
     u16 highBase; 
-}__attribute__((packed));
+}__attribute__((packed)) IDTEntry;
 
-struct IDTRegType
+typedef struct
 {
     u16 limit;
     u32 base;			/* The address of the first entry of idt. */
-}__attribute__((packed));
+}__attribute__((packed)) IDTRegType;
 
 
-IDTEntry idt[idtEntryNumber];
+IDTEntry idt[IDT_ENTRIES];
 IDTRegType idtReg;
 
 /* Some functions. */

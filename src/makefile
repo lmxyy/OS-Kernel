@@ -1,7 +1,7 @@
-C_SOURCES = $(wildcard kernel/*.c drivers/*.c)
-HEADERS = $(wildcard kernel/*.h drivers/*.h)
+C_SOURCES = $(wildcard kernel/*.c drivers/*.c cpu/*.c)
+HEADERS = $(wildcard kernel/*.h drivers/*.h cpu/*.c)
 
-OBJ = ${C_SOURCES:.c=.o}
+OBJ = ${C_SOURCES:.c=.o cpu/interrupt.o}
 
 CC = /Users/limuyang/Desktop/OS-Kernel/crosscompiler/gcc/bin/i386-elf-gcc
 GDB = /Users/limuyang/Desktop/OS-Kernel/crosscompiler/gdb/bin/i386-elf-gdb
@@ -21,7 +21,7 @@ run: os-image.bin
 	qemu-system-i386 -fda os-image.bin
 
 debug: os-image.bin kernel.elf
-	qemu-system-i386 -s -fda os-image.bin &
+	qemu-system-i386 -s -fda os-image.bin -d guest_errors,int &
 	${GDB} -ex "target remote localhost:1234" -ex "symbol-file kernel.elf"
 
 %.o: %.c ${HEADERS}
@@ -35,4 +35,4 @@ debug: os-image.bin kernel.elf
 
 clean:
 	rm -rf *.bin *.dis *.o os-image.bin *.elf
-	rm -rf kernel/*.o boot/*.bin boot/*.o drivers/*.o 
+	rm -rf kernel/*.o boot/*.bin boot/*.o drivers/*.o cpu/*.o
