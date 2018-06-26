@@ -142,7 +142,7 @@ void irqHandler(RegType r)
 	portByteOut(PIC2_COMMAND,PIC_EOI);
     portByteOut(PIC1_COMMAND,PIC_EOI);
 
-    if (intHandlers[r.intNo] != NULL)
+    if (intHandlers[r.intNo] != 0)
     {
 	ISRType handler = intHandlers[r.intNo];
 	handler(r);

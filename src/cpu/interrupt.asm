@@ -34,7 +34,7 @@ irq_common_stub:
 	mov es, ax
 	mov fs, ax
 	mov gs, ax
-	call irq_handler
+	call irqHandler
 	pop ebx
 	mov ds, bx
 	mov es, bx
