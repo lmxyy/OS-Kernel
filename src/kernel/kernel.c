@@ -6,14 +6,14 @@
 #include "../cpu/isr.h"
 #include "kernel.h"
 
-int isExit(char *input)
+static int isExit(char *input)
 {
     if (strncmp(input,"EXIT",4) != 0)
 	return 0;
     else return input[4] == 0||input[4] == ' ';
 }
 
-int isPage(char *input)
+static int isPage(char *input)
 {
     if (strncmp(input,"PAGE",4) != 0)
 	return 0;
@@ -47,7 +47,7 @@ void userInput(char *input)
     kprint("\n> ");
 }
 
-void main()
+void kernelMain()
 {
     isrInstall();
     irqInstall();

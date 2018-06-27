@@ -2,8 +2,8 @@
 	%define KERNEL_ENTRY_ASM
 	
 [bits 32]
-[extern main]
-	call main
+[extern kernelMain]
+	call kernelMain
 	jmp $
 
 	%endif
