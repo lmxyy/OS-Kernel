@@ -76,7 +76,7 @@ typedef struct
     u32 ds;			/* Data segment selector. */
     u32 edi,esi,ebp,esp,ebx,edx,ecx,eax; /* Pushed by pusha. */
     u32 intNo,errCode; 		/* Interrupt number and error code. */
-    u32 eip,cs,eflags,useresp,ss; /* Pushed by the processor automatically. */
+    u32 eip,cs,eflags,esp,ss; /* Pushed by the processor automatically. */
 }RegType;
 
 void isrInstall();
