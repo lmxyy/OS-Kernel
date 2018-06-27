@@ -1,7 +1,7 @@
 #ifndef TIMER_C
 #define TIMER_C
 
-#include "../kernel/util.h"
+#include "../libc/string.h"
 #include "../drivers/screen.h"
 #include "types.h"
 #include "timer.h"

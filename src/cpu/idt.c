@@ -1,7 +1,7 @@
 #ifndef IDT_C
 #define IDT_C
 
-#include "../kernel/util.h"
+
 #include "idt.h"
 
 void setIDTEntry(int n,u32 handler)

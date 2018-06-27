@@ -3,7 +3,7 @@
 
 #include "../drivers/screen.h"
 #include "../drivers/ports.h"
-#include "../kernel/util.h"
+#include "../libc/string.h"
 #include "types.h"
 #include "isr.h"
 #include "idt.h"

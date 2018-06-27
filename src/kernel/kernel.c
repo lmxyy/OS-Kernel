@@ -4,9 +4,6 @@
 #include "../drivers/screen.h"
 #include "../drivers/keyboard.h"
 #include "../cpu/isr.h"
-#include "../cpu/idt.h"
-#include "../cpu/timer.h"
-#include "util.h"
 
 void main()
 {
