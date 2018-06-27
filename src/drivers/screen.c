@@ -2,7 +2,6 @@
 #define SCREEN_C
 
 #include "../libc/mem.h"
-#include "ports.h"
 #include "screen.h"
 
 /* private functions */

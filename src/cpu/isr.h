@@ -81,6 +81,7 @@ typedef struct
 
 void isrInstall();
 void isrHandler(RegType r);
+void irqInstall();
 
 typedef void (*ISRType)(RegType);
 void regIntHandler(u8 n,ISRType handler);

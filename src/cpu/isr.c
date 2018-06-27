@@ -2,7 +2,7 @@
 #define ISR_C
 
 #include "../drivers/screen.h"
-#include "../drivers/ports.h"
+#include "ports.h"
 #include "../libc/string.h"
 #include "types.h"
 #include "isr.h"
@@ -147,6 +147,13 @@ void irqHandler(RegType r)
 	ISRType handler = intHandlers[r.intNo];
 	handler(r);
     }
+}
+
+void irqInstall()
+{
+    __asm__ __volatile__ ("sti");
+    initTimer(50);
+    initKeyboard();
 }
 
 #endif

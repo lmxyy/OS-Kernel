@@ -2,8 +2,8 @@
 #define KEYBOARD_C
 
 #include "../cpu/isr.h"
+#include "../cpu/ports.h"
 #include "keyboard.h"
-#include "ports.h"
 #include "screen.h"
 
 static void keyboardCallback(RegType reg)
