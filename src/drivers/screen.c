@@ -128,9 +128,18 @@ void kprintAt(char *message,int row,int col)
 	col = getOffsetCol(offset);
     }
 }
+
 void kprint(char *message)
 {
     kprintAt(message,-1,-1);
+}
+
+void kprintBackspace()
+{
+    int offset = getCursorOffset()-2;
+    int row = getOffsetRow(offset);
+    int col = getOffsetCol(offset);
+    printChar(0x08,row,col,0);	/* 0x08 is the backspace. */
 }
 
 #endif
