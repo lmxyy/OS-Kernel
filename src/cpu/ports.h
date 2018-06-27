@@ -1,7 +1,7 @@
 #ifndef PORTS_H
 #define PORTS_H
 
-#include "types.h"
+#include "type.h"
 
 u8 portByteIn(u16 port);
 void portByteOut(u16 port,u8 data);

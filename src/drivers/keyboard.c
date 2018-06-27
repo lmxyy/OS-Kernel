@@ -10,7 +10,7 @@
 #define BACKSPACE (0x0E)
 #define ENTER (0x1C)
 
-static char keyBuffer[256];
+static char keyBuffer[256] = "";
 
 #define SC_MAX (57)
 const char *scName[] = { "ERROR", "Esc", "1", "2", "3", "4", "5", "6", 
@@ -31,8 +31,11 @@ static void keyboardCallback(RegType reg)
     if (scancode > SC_MAX) return;
     if (scancode == BACKSPACE)
     {
-	backspace(keyBuffer);
-	kprintBackspace();
+	if (keyBuffer[0] != 0)
+	{
+	    backspace(keyBuffer);
+	    kprintBackspace();
+	}
     }
     else if (scancode == ENTER)
     {

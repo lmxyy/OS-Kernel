@@ -2,9 +2,8 @@
 #define ISR_C
 
 #include "../drivers/screen.h"
-#include "ports.h"
 #include "../libc/string.h"
-#include "types.h"
+#include "ports.h"
 #include "isr.h"
 #include "idt.h"
 

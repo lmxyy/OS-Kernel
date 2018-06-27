@@ -30,8 +30,8 @@ void hex2Ascii(int n,char str[])
 	now = (n>>i)&0xf;
 	if (i != 0&&now == 0&&!pzero) continue;
 	pzero = 1;
-	if (now >= 0xa) str[len++] tmp-0xa+'a';
-	else str[len++] = tmp+'0';
+	if (now >= 0xa) str[len++] = now-0xa+'a';
+	else str[len++] = now+'0';
     }
     str[len] = 0;
 }
@@ -82,7 +82,7 @@ int strncmp(char s1[],char s2[],int n)
 int ascii2Int(char *str)
 {
     while (*str == ' ') ++str;
-    n = strlen(str);
+    int n = strlen(str);
     int f = 1,i = 0,ret = 0;
     if (str[0] == '-')
 	f = -1,++i;

@@ -23,6 +23,7 @@ u32 kmalloc(u32 size,int align,u32 *paddr) // align is a flag to decide whether 
     /* For aligning. */
     if (align == 1&&(freeAddr&0xfffff000))
     {
+	kprint("laalal");
 	freeAddr &= 0xfffff000;
 	freeAddr += 0x1000;
     }

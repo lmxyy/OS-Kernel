@@ -3,7 +3,6 @@
 
 #include "../libc/string.h"
 #include "../drivers/screen.h"
-#include "types.h"
 #include "timer.h"
 #include "isr.h"
 

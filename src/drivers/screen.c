@@ -139,7 +139,8 @@ void kprintBackspace()
     int offset = getCursorOffset()-2;
     int row = getOffsetRow(offset);
     int col = getOffsetCol(offset);
-    printChar(0x08,row,col,0);	/* 0x08 is the backspace. */
+    printChar(' ',row,col,0);
+    setCursorOffset(offset);
 }
 
 #endif

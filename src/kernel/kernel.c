@@ -9,14 +9,14 @@
 int isExit(char *input)
 {
     if (strncmp(input,"EXIT",4) != 0)
-	return false;
+	return 0;
     else return input[4] == 0||input[4] == ' ';
 }
 
 int isPage(char *input)
 {
     if (strncmp(input,"PAGE",4) != 0)
-	return false;
+	return 0;
     else return input[4] == 0||input[4] == ' ';
 }
 
