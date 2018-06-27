@@ -12,11 +12,11 @@ static u32 tick = 0;
 static void timerCallback(RegType reg)
 {
     tick++;
-    kprint("Tick: ");
+    /* kprint("Tick: "); */
 
-    char tickAscii[256];
-    int2Ascii(tick,tickAscii);
-    kprint(tickAscii); kprint("\n");
+    /* char tickAscii[256]; */
+    /* int2Ascii(tick,tickAscii); */
+    /* kprint(tickAscii); kprint("\n"); */
 }
 
 void initTimer(u32 freq)
