@@ -18,7 +18,7 @@ void memorySet(uint8_t *dest,uint8_t val,int len)
 
 uint32_t freeAddr = 0x10000;
 /* For paging, the address are aligned to 4K(0x1000). */
-uint32_t kmalloc(uint32_t size,int align,uint32_t *paddr) // align is a flag to decide whether to align
+uint32_t kmalloc(size_t size,int align,uint32_t *paddr) // align is a flag to decide whether to align
 {
     /* For aligning. */
     if (align == 1&&(freeAddr&0xfffff000))
