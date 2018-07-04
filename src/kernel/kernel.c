@@ -30,9 +30,9 @@ void userInput(char *input)
     }
     else if (isPage(input))
     {
-	u32 paddr; int size = ascii2Int(input+4);
+	uint32_t paddr; int size = ascii2Int(input+4);
 	if (size <= 0) size = 1000;
-	u32 page = kmalloc(size,1,&paddr);
+	uint32_t page = kmalloc(size,1,&paddr);
 	char pageStr[20],paddrStr[20];
 	hex2Ascii(page,pageStr);
 	hex2Ascii(paddr,paddrStr);

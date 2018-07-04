@@ -3,26 +3,26 @@
 
 #include "ports.h"
 
-u8 portByteIn(u16 port)
+uint8_t portByteIn(uint16_t port)
 {
-    u8 ret;
+    uint8_t ret;
     __asm__("in %%dx, %%al" : "=a"(ret) : "d"(port));
     return ret;
 }
 
-void portByteOut(u16 port,u8 data)
+void portByteOut(uint16_t port,uint8_t data)
 {
     __asm__ __volatile__("out %%al, %%dx" : : "d"(port),"a"(data));
 }
 
-u16 portWordIn(u16 port)
+uint16_t portWordIn(uint16_t port)
 {
-    u16 ret;
+    uint16_t ret;
     __asm__("in %%dx, %%ax" : "=a"(ret) : "d"(port));
     return ret;
 }
 
-void portWordOut(u16 port,u16 data)
+void portWordOut(uint16_t port,uint16_t data)
 {
     __asm__ __volatile__("out %%ax, %%dx" : : "d"(port),"a"(data));
 }

@@ -6,7 +6,7 @@ OBJ = ${C_SOURCES:.c=.o cpu/interrupt.o}
 CC = /Users/limuyang/Desktop/OS-Kernel/crosscompiler/gcc/bin/i386-elf-gcc
 GDB = /Users/limuyang/Desktop/OS-Kernel/crosscompiler/gdb/bin/i386-elf-gdb
 LD = /Users/limuyang/Desktop/OS-Kernel/crosscompiler/gcc/bin/i386-elf-ld
-CFLAGS = -g -ffreestanding -Wall -Wextra -fno-exceptions -m32
+CFLAGS = -g -ffreestanding -Wall -Wextra -fno-exceptions -m32 -w
 
 os-image.bin: boot/bootsect.bin kernel.bin
 	cat $^ > os-image.bin

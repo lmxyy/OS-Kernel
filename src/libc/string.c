@@ -24,7 +24,7 @@ void hex2Ascii(int n,char str[])
     str[len++] = '0'; str[len++] = 'x';
 
     int pzero = 0;
-    s32 now; int i = 28;
+    int32_t now; int i = 28;
     for (;i >= 0;i -= 4)
     {
 	now = (n>>i)&0xf;

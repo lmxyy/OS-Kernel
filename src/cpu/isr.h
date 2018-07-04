@@ -1,7 +1,7 @@
 #ifndef ISR_H
 #define ISR_H
 
-#include "type.h"
+#include "../libc/type.h"
 
 extern void isr0();
 extern void isr1();
@@ -73,10 +73,10 @@ extern void irq15();
 
 typedef struct
 {
-    u32 ds;			/* Data segment selector. */
-    u32 edi,esi,ebp,esp,ebx,edx,ecx,eax; /* Pushed by pusha. */
-    u32 intNo,errCode; 		/* Interrupt number and error code. */
-    u32 eip,cs,eflags,useresp,ss; /* Pushed by the processor automatically. */
+    uint32_t ds;			/* Data segment selector. */
+    uint32_t edi,esi,ebp,esp,ebx,edx,ecx,eax; /* Pushed by pusha. */
+    uint32_t intNo,errCode; 		/* Interrupt number and error code. */
+    uint32_t eip,cs,eflags,useresp,ss; /* Pushed by the processor automatically. */
 }RegType;
 
 void isrInstall();
@@ -84,7 +84,7 @@ void isrHandler(RegType r);
 void irqInstall();
 
 typedef void (*ISRType)(RegType);
-void regIntHandler(u8 n,ISRType handler);
+void regIntHandler(uint8_t n,ISRType handler);
 void irqHandler(RegType r);
 
 #define PIC1_COMMAND (0x20)		/* IO base address for master PIC */

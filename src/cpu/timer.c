@@ -6,25 +6,17 @@
 #include "timer.h"
 #include "isr.h"
 
-static u32 tick = 0;
+static uint32_t tick = 0;
 
-static void timerCallback(RegType reg)
-{
-    tick++;
-    /* kprint("Tick: "); */
+static void timerCallback(RegType reg) { tick++; }
 
-    /* char tickAscii[256]; */
-    /* int2Ascii(tick,tickAscii); */
-    /* kprint(tickAscii); kprint("\n"); */
-}
-
-void initTimer(u32 freq)
+void initTimer(uint32_t freq)
 {
     regIntHandler(IRQ0,timerCallback);
 
-    u32 divisor = 1193180/freq;
-    u8 low = (u8)(divisor&0xff);
-    u8 high = (u8)((divisor>>8)&0xff);
+    uint32_t divisor = 1193180/freq;
+    uint8_t low = (uint8_t)(divisor&0xff);
+    uint8_t high = (uint8_t)((divisor>>8)&0xff);
 
     portByteOut(0x43,0x36);
     portByteOut(0x40,low);

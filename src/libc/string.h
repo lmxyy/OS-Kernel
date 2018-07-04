@@ -1,7 +1,7 @@
 #ifndef STRING_H
 #define STRING_H
 
-#include "../cpu/type.h"
+#include "type.h"
 
 void int2Ascii(int n,char str[]);
 void hex2Ascii(int n,char str[]);

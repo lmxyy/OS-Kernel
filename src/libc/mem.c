@@ -10,15 +10,15 @@ void memoryCopy(char *source,char *dest,int nbytes)
 	*(dest+i) = *(source+i);
 }
 
-void memorySet(u8 *dest,u8 val,int len)
+void memorySet(uint8_t *dest,uint8_t val,int len)
 {
-    u8 *now = dest;
+    uint8_t *now = dest;
     while (len--) *(now++) = val;
 }
 
-u32 freeAddr = 0x10000;
+uint32_t freeAddr = 0x10000;
 /* For paging, the address are aligned to 4K(0x1000). */
-u32 kmalloc(u32 size,int align,u32 *paddr) // align is a flag to decide whether to align
+uint32_t kmalloc(uint32_t size,int align,uint32_t *paddr) // align is a flag to decide whether to align
 {
     /* For aligning. */
     if (align == 1&&(freeAddr&0xfffff000))
@@ -29,7 +29,7 @@ u32 kmalloc(u32 size,int align,u32 *paddr) // align is a flag to decide whether 
 
     if (paddr) *paddr = freeAddr;
 
-    u32 ret = freeAddr;
+    uint32_t ret = freeAddr;
     freeAddr += size;
     return ret;
 }

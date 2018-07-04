@@ -27,7 +27,7 @@ const char scAscii[] = { '?', '?', '1', '2', '3', '4', '5', '6',
 
 static void keyboardCallback(RegType reg)
 {
-    u8 scancode = portByteIn(0x60);
+    uint8_t scancode = portByteIn(0x60);
     if (scancode > SC_MAX) return;
     if (scancode == BACKSPACE)
     {
@@ -58,7 +58,7 @@ void initKeyboard()
 }
 
 /* For details of scancode, visit http://www.win.tue.nl/%7Eaeb/linux/kbd/scancodes-1.html */
-static void printLetter(u8 scancode)
+static void printLetter(uint8_t scancode)
 {
     switch (scancode) {
     case 0x0: kprint("ERROR"); break;

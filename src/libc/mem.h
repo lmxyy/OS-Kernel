@@ -1,11 +1,11 @@
 #ifndef MEM_H
 #define MEM_H
 
-#include "../cpu/type.h"
+#include "type.h"
 
 void memoryCopy(char *source,char *dest,int nbytes);
-void memorySet(u8 *dest,u8 val,int len);
+void memorySet(uint8_t *dest,uint8_t val,int len);
 
-u32 kmalloc(u32 size,int align,u32 *paddr);
+uint32_t kmalloc(uint32_t size,int align,uint32_t *paddr);
 
 #endif
