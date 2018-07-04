@@ -26,7 +26,7 @@ void userInput(char *input)
     if (isExit(input))
     {
 	kprint("Stopping the CPU. Bye!\n");
-	__asm__ __volatile__ ("hlt");
+	asm volatile ("hlt");
     }
     else if (isPage(input))
     {

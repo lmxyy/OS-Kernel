@@ -150,7 +150,7 @@ void irqHandler(RegType r)
 
 void irqInstall()
 {
-    __asm__ __volatile__ ("sti");
+    asm volatile ("sti");
     initTimer(50);
     initKeyboard();
 }
