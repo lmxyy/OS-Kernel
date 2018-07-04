@@ -5,8 +5,6 @@ export TARGET=i386-elf
 export PATH="$PREFIX/bin:$PATH"
 
 cd '/Users/limuyang/Desktop/OS-Kernel/crosscompiler/src'
-mkdir /tmp/src
-cd /tmp/src
 curl -O http://ftp.gnu.org/gnu/binutils/binutils-2.30.tar.gz # If the link 404's, look for a more recent version
 tar xf binutils-2.30.tar.gz
 mkdir binutils-build
