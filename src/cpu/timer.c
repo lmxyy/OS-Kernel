@@ -8,7 +8,7 @@
 
 static uint32_t tick = 0;
 
-static void timerCallback(RegType reg) { tick++; }
+static void timerCallback(RegType *reg) { tick++; }
 
 void initTimer(uint32_t freq)
 {

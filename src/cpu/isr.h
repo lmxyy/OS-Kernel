@@ -74,18 +74,18 @@ extern void irq15();
 typedef struct
 {
     uint32_t ds;			/* Data segment selector. */
-    uint32_t edi,esi,ebp,esp,ebx,edx,ecx,eax; /* Pushed by pusha. */
+    uint32_t edi,esi,ebp,useless,ebx,edx,ecx,eax; /* Pushed by pusha. */
     uint32_t intNo,errCode; 		/* Interrupt number and error code. */
-    uint32_t eip,cs,eflags,useresp,ss; /* Pushed by the processor automatically. */
+    uint32_t eip,cs,eflags,esp,ss; /* Pushed by the processor automatically. */
 }RegType;
 
 void isrInstall();
-void isrHandler(RegType r);
+void isrHandler(RegType *r);
 void irqInstall();
 
-typedef void (*ISRType)(RegType);
+typedef void (*ISRType)(RegType *);
 void regIntHandler(uint8_t n,ISRType handler);
-void irqHandler(RegType r);
+void irqHandler(RegType *r);
 
 #define PIC1_COMMAND (0x20)		/* IO base address for master PIC */
 #define PIC2_COMMAND (0xA0)		/* IO base address for slave PIC */

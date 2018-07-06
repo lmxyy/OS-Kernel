@@ -10,7 +10,7 @@
 typedef struct
 {
     uint16_t lowBase;		/* Low 16 bits of the handler's address. */
-    uint16_t sel;			/* Kernel segment selector. */
+    uint16_t selector;			/* Kernel segment selector. */
     uint8_t always0;
     /*
       bit 7: "interrupt is present"

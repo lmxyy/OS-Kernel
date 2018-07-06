@@ -25,7 +25,7 @@ const char scAscii[] = { '?', '?', '1', '2', '3', '4', '5', '6',
 			  'H', 'J', 'K', 'L', ';', '\'', '`', '?', '\\', 'Z', 'X', 'C', 'V', 
 			  'B', 'N', 'M', ',', '.', '/', '?', '?', '?', ' '};
 
-static void keyboardCallback(RegType reg)
+static void keyboardCallback(RegType *reg)
 {
     uint8_t scancode = portByteIn(0x60);
     if (scancode > SC_MAX) return;

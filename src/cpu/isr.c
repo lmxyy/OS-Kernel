@@ -120,13 +120,13 @@ char *exceptionMessage[] =
     "Reserved"
 };
 
-void isrHandler(RegType r)
+void isrHandler(RegType *r)
 {
     kprint("receive interrupt: ");
     char s[10];
-    int2Ascii(r.intNo,s);
+    int2Ascii(r->intNo,s);
     kprint(s); kprint("\n");
-    kprint(exceptionMessage[r.intNo]); kprint("\n");
+    kprint(exceptionMessage[r->intNo]); kprint("\n");
 }
 
 void regIntHandler(uint8_t n,ISRType handler)
@@ -134,16 +134,16 @@ void regIntHandler(uint8_t n,ISRType handler)
     intHandlers[n] = handler;
 }
 
-void irqHandler(RegType r)
+void irqHandler(RegType *r)
 {
     /* send EOI first */
-    if (r.intNo >= 40) // irq >= 8
+    if (r->intNo >= 40) // irq >= 8
 	portByteOut(PIC2_COMMAND,PIC_EOI);
     portByteOut(PIC1_COMMAND,PIC_EOI);
 
-    if (intHandlers[r.intNo] != 0)
+    if (intHandlers[r->intNo] != 0)
     {
-	ISRType handler = intHandlers[r.intNo];
+	ISRType handler = intHandlers[r->intNo];
 	handler(r);
     }
 }

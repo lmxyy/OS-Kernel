@@ -6,7 +6,7 @@
 void setIDTEntry(int n,uint32_t handler)
 {
     idt[n].lowBase = LOW16(handler);
-    idt[n].sel = KERNEL_CS;
+    idt[n].selector = KERNEL_CS;
     idt[n].always0 = 0;
     idt[n].flags = 0x8e;
     idt[n].highBase = HIGH16(handler);
